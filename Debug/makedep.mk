@@ -12,3 +12,7 @@ GIE_Driver\GIE_prog.c
 
 main.c
 
+Timer_Driver\Timer_prog.c
+
+UART_Driver\UART_prog.c
+

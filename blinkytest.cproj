@@ -171,6 +171,30 @@
     <Compile Include="STD_Types_and_BIT_Math\STD_TYPES.h">
       <SubType>compile</SubType>
     </Compile>
+    <Compile Include="Timer_Driver\Timer_cfg.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="Timer_Driver\Timer_int.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="Timer_Driver\Timer_prog.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="Timer_Driver\Timer_prv.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="UART_Driver\UART_cfg.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="UART_Driver\UART_int.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="UART_Driver\UART_prog.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="UART_Driver\UART_prv.h">
+      <SubType>compile</SubType>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="ADC_Driver\" />
@@ -178,6 +202,8 @@
     <Folder Include="EXTI_Driver\" />
     <Folder Include="GIE_Driver\" />
     <Folder Include="STD_Types_and_BIT_Math\" />
+    <Folder Include="Timer_Driver\" />
+    <Folder Include="UART_Driver\" />
   </ItemGroup>
   <Import Project="$(AVRSTUDIO_EXE_PATH)\\Vs\\Compiler.targets" />
 </Project>

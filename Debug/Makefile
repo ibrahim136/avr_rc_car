@@ -37,7 +37,9 @@ SUBDIRS :=  \
 ../DIO_Driver/ \
 ../EXTI_Driver/ \
 ../GIE_Driver/ \
-../STD_Types_and_BIT_Math/
+../STD_Types_and_BIT_Math/ \
+../Timer_Driver/ \
+../UART_Driver/
 
 
 # Add inputs and outputs from these tool invocations to the build variables 
@@ -46,7 +48,9 @@ C_SRCS +=  \
 ../DIO_Driver/DIO_prog.c \
 ../EXTI_Driver/EXTI_prog.c \
 ../GIE_Driver/GIE_prog.c \
-../main.c
+../main.c \
+../Timer_Driver/Timer_prog.c \
+../UART_Driver/UART_prog.c
 
 
 PREPROCESSING_SRCS += 
@@ -60,28 +64,36 @@ ADC_Driver/ADC_prog.o \
 DIO_Driver/DIO_prog.o \
 EXTI_Driver/EXTI_prog.o \
 GIE_Driver/GIE_prog.o \
-main.o
+main.o \
+Timer_Driver/Timer_prog.o \
+UART_Driver/UART_prog.o
 
 OBJS_AS_ARGS +=  \
 ADC_Driver/ADC_prog.o \
 DIO_Driver/DIO_prog.o \
 EXTI_Driver/EXTI_prog.o \
 GIE_Driver/GIE_prog.o \
-main.o
+main.o \
+Timer_Driver/Timer_prog.o \
+UART_Driver/UART_prog.o
 
 C_DEPS +=  \
 ADC_Driver/ADC_prog.d \
 DIO_Driver/DIO_prog.d \
 EXTI_Driver/EXTI_prog.d \
 GIE_Driver/GIE_prog.d \
-main.d
+main.d \
+Timer_Driver/Timer_prog.d \
+UART_Driver/UART_prog.d
 
 C_DEPS_AS_ARGS +=  \
 ADC_Driver/ADC_prog.d \
 DIO_Driver/DIO_prog.d \
 EXTI_Driver/EXTI_prog.d \
 GIE_Driver/GIE_prog.d \
-main.d
+main.d \
+Timer_Driver/Timer_prog.d \
+UART_Driver/UART_prog.d
 
 OUTPUT_FILE_PATH +=blinkytest.elf
 
@@ -126,6 +138,20 @@ GIE_Driver/GIE_prog.o: ../GIE_Driver/GIE_prog.c
 	
 
 ./main.o: .././main.c
+	@echo Building file: $<
+	@echo Invoking: AVR/GNU C Compiler : 5.4.0
+	$(QUOTE)C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\avr8\avr8-gnu-toolchain\bin\avr-gcc.exe$(QUOTE)  -x c -funsigned-char -funsigned-bitfields -DDEBUG  -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.7.374\include"  -Og -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -g2 -Wall -mmcu=atmega32a -B "C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.7.374\gcc\dev\atmega32a" -c -std=gnu99 -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 
+	@echo Finished building: $<
+	
+
+Timer_Driver/Timer_prog.o: ../Timer_Driver/Timer_prog.c
+	@echo Building file: $<
+	@echo Invoking: AVR/GNU C Compiler : 5.4.0
+	$(QUOTE)C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\avr8\avr8-gnu-toolchain\bin\avr-gcc.exe$(QUOTE)  -x c -funsigned-char -funsigned-bitfields -DDEBUG  -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.7.374\include"  -Og -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -g2 -Wall -mmcu=atmega32a -B "C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.7.374\gcc\dev\atmega32a" -c -std=gnu99 -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 
+	@echo Finished building: $<
+	
+
+UART_Driver/UART_prog.o: ../UART_Driver/UART_prog.c
 	@echo Building file: $<
 	@echo Invoking: AVR/GNU C Compiler : 5.4.0
 	$(QUOTE)C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\avr8\avr8-gnu-toolchain\bin\avr-gcc.exe$(QUOTE)  -x c -funsigned-char -funsigned-bitfields -DDEBUG  -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.7.374\include"  -Og -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -g2 -Wall -mmcu=atmega32a -B "C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.7.374\gcc\dev\atmega32a" -c -std=gnu99 -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 
