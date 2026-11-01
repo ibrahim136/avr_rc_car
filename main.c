@@ -5,6 +5,7 @@
 #include "EXTI_Driver/EXTI_int.h"
 #include "ADC_Driver/ADC_int.h"
 #include "Timer_driver/Timer_int.h"
+#include "UART_Driver/UART_int.h"
 #define F_CPU 8000000
 //#include <util/delay.h>
 

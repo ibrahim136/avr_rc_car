@@ -88,8 +88,12 @@ Discarded input sections
  .text          0x00000000        0x0 UART_Driver/UART_prog.o
  .data          0x00000000        0x0 UART_Driver/UART_prog.o
  .bss           0x00000000        0x0 UART_Driver/UART_prog.o
- .debug_line    0x00000000        0x0 UART_Driver/UART_prog.o
- .debug_str     0x00000000       0xff UART_Driver/UART_prog.o
+ .debug_info    0x00000000       0x5d UART_Driver/UART_prog.o
+ .debug_abbrev  0x00000000       0x26 UART_Driver/UART_prog.o
+ .debug_aranges
+                0x00000000       0x18 UART_Driver/UART_prog.o
+ .debug_line    0x00000000       0x1a UART_Driver/UART_prog.o
+ .debug_str     0x00000000      0x14f UART_Driver/UART_prog.o
  .comment       0x00000000       0x31 UART_Driver/UART_prog.o
  .text          0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a(_mulsi3.o)
  .data          0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a(_mulsi3.o)
