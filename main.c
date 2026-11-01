@@ -21,7 +21,7 @@
 
 int main(void)
 {
-	DIO_voidSetPinDirection(PORTA,PIN7,PIN_Input);
+	/*DIO_voidSetPinDirection(PORTA,PIN7,PIN_Input);
 	DIO_voidSetPinDirection(PORTB,PIN3,PIN_Output);
 	//DIO_voidSetPinDirection(PORTD,PIN0,PIN_Input);
 	ADC_voidInit();
@@ -35,6 +35,17 @@ int main(void)
 		reading = ADC_u16StartConversion(channel_7);
 		value = Mapping(1023,0,255,0,reading);
 		TIM0_voidCTCSetCompareValue(255-value);
+	}*/
+	DIO_voidSetPinDirection(PORTA,PIN0,PIN_Output);
+	DIO_voidSetPinDirection(PORTA,PIN1,PIN_Output);
+	while(1){
+		for (int i=0;i<1000000000;i++);
+		DIO_voidSetPinValue(PORTA,PIN0,PIN_High);
+		DIO_voidSetPinValue(PORTA,PIN0,PIN_Low);
+		for (int i=0;i<1000000000;i++);
+		DIO_voidSetPinValue(PORTA,PIN0,PIN_Low);
+		DIO_voidSetPinValue(PORTA,PIN0,PIN_High);
+		
 	}
 }
 
