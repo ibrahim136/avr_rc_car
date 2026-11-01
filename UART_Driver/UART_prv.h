@@ -34,7 +34,7 @@ typedef struct{
 #define URSEL 7
 #define UMSEL 6
 #define UPM1 5
-#define UPM0 5
+#define UPM0 4
 #define USBS 3
 #define UCSZ0 1
 #define UCSZ2 2

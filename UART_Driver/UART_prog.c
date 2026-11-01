@@ -20,7 +20,7 @@ void UART_voidInit(void)
 	CLR_BIT(Loc_u8Var,USBS);
 	CLEAR_MASK(Loc_u8Var,UCSZ0_1_Bits_Mask);
 	SET_MASK(Loc_u8Var,bit_8<<UCSZ0);
-	SET_BIT(USART_Registers->UCSRB,UCSZ2);	
+	CLR_BIT(USART_Registers->UCSRB,UCSZ2);	
 	
 	USART_Registers->UCSRC = Loc_u8Var;
 	
