@@ -21,12 +21,6 @@
 
 int main(void)
 {
-	u8 Loc_var =0;
-	UART_voidInit();
-	DIO_voidSetPinDirection(PORTA,PIN0,PIN_Output);
-	DIO_voidSetPinDirection(PORTA,PIN1,PIN_Output);
-	DIO_voidSetPinDirection(PORTA,PIN2,PIN_Output);
-	
 	DIO_voidSetPinDirection(PORTA,PIN7,PIN_Input);
 	DIO_voidSetPinDirection(PORTB,PIN3,PIN_Output);
 	//DIO_voidSetPinDirection(PORTD,PIN0,PIN_Input);
@@ -37,21 +31,7 @@ int main(void)
 	
 	while(1)
 	{
-		Loc_var = UART_u8Recieve();
-		switch(Loc_var)
-		{
-			case '1':
-			DIO_voidTogglePinValue(PORTA,PIN0);
-			break;
-			case '2':
-			DIO_voidTogglePinValue(PORTA,PIN1);
-			break;
-			case '3':
-			DIO_voidTogglePinValue(PORTA,PIN2);
-			break;
-			default:
-			break;
-		}
+		
 		reading = ADC_u16StartConversion(channel_7);
 		value = Mapping(1023,0,255,0,reading);
 		TIM0_voidCTCSetCompareValue(255-value);
