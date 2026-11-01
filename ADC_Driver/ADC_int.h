@@ -17,6 +17,7 @@ void ADC_voidInit(void);
 
 u16 ADC_u16StartConversion(ADC_channels Copy_uddtChannel);
 
+u32 Mapping(u32 Range1_max,u32 Range1_min,u32 Range2_max,u32 Range2_min,u32 Range1_reading);
 
 
 #endif /* ADC_INT_H_ */

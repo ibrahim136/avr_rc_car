@@ -10,7 +10,7 @@
 #define TIMER_CFG_H_
 
 
-#define Waveform_Generation_Mode CTC
+#define Waveform_Generation_Mode Fast_PWM
 #define CTC_Mode Toggle 
 
 

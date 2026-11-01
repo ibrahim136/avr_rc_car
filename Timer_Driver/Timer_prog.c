@@ -25,9 +25,16 @@ void TIM0_voidInit(Prescaller_t Copy_uddtPrescaller)
 	SET_BIT(Timer0_Registers->TCCR0,TCCR0_COM00);
 	CLR_BIT(Timer0_Registers->TCCR0,TCCR0_COM01);
 	#endif
+	#elif Waveform_Generation_Mode == Fast_PWM
+	SET_BIT(Timer0_Registers->TCCR0,TCCR0_WGM01);
+	SET_BIT(Timer0_Registers->TCCR0,TCCR0_WGM00);
+	
+	CLR_BIT(Timer0_Registers->TCCR0,TCCR0_COM00);
+	SET_BIT(Timer0_Registers->TCCR0,TCCR0_COM01);
+	
 	#endif
-	Timer0_Registers->TCCR0 &= ~Prescaller_Mask;
-	Timer0_Registers->TCCR0 |= (Copy_uddtPrescaller << 0);
+	CLEAR_MASK(Timer0_Registers->TCCR0,Prescaller_Mask);
+	SET_MASK(Timer0_Registers->TCCR0,Copy_uddtPrescaller);
 }
 void TIM0_voidOVFIntEnable(void)
 {
@@ -52,7 +59,7 @@ void __vector_11(void)
 
 void TIM0_voidCTCIntEnable(void)
 {
-	
+	SET_BIT(Timer0_Registers->TIMSK,TIMSK_OCIE0);
 }
 void TIM0_voidCTCCallBack(void(*ptr)(void))
 {

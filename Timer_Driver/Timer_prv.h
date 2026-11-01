@@ -34,12 +34,13 @@ typedef struct {
 #define TIMSK_TOIE0 0
 #define TIMSK_OCIE0 1
 
-#define Prescaller_Mask 0x07
+#define Prescaller_Mask (0x07<<TCCR0_CS00)
 
 #define Normal 0
 #define CTC 1
 #define Toggle 2
 #define Clear 3
 #define Set 4
+#define Fast_PWM 5
 
 #endif /* TIMER_PRV_H_ */

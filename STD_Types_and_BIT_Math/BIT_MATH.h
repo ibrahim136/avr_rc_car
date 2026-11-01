@@ -13,6 +13,7 @@
 #define CLR_BIT(REG,BIT_NUM) (REG &= (~(1<<BIT_NUM)))
 #define TOG_BIT(REG,BIT_NUM) (REG ^= (1<<BIT_NUM))
 #define GET_BIT(REG,BIT_NUM) ((REG>>BIT_NUM) &1)
-
+#define CLEAR_MASK(REG,MASK) ((REG) &= ~ MASK)
+#define SET_MASK(REG,MASK) ((REG) |= MASK)
 
 #endif /* BIT_MATH_H_ */

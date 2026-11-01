@@ -34,3 +34,8 @@ u16 ADC_u16StartConversion(ADC_channels Copy_uddtChannel)
 	return ADC_Registers->ADC;
 	
 }
+
+u32 Mapping(u32 Range1_max,u32 Range1_min,u32 Range2_max,u32 Range2_min,u32 Range1_reading)
+{
+	return (Range2_max - ((Range2_max - Range2_min)* (Range1_max-Range1_reading)/(Range1_max-Range1_min)));
+}

@@ -13,9 +13,10 @@ typedef struct{
 	union
 	{
 		u8 UBRRL;
-		struct{
-			u8 UBRR :8;
-		};
+		u8 UCSRB;
+		u8 UCSRA;
+		u8 UDR;
+		
 	};
 		
 	
