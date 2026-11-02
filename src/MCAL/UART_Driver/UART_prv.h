@@ -40,6 +40,6 @@ typedef struct{
 #define UCSZ2 2
 #define UCSZ0_1_Bits_Mask (0x03<< UCSZ0)
 
+#define RXCIE 7
 
-
-#endif /* UART_PRV_H_ */
+#endif 

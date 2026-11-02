@@ -24,5 +24,6 @@ typedef enum{
 void UART_voidInit(void);
 void UART_voidTransmit(u8 Copy_u8Data);
 u8 UART_u8Recieve(void);
+void UART_voidSetCallBack(void (*Copy_pVoidCallBack)(u8));
 
-#endif /* UART_INT_H_ */
+#endif 

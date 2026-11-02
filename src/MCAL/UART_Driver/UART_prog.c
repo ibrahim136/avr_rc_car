@@ -1,14 +1,10 @@
-/*
-* UART_prog.c
-*
-* Created: 10/18/2026 2:05:49 PM
-*  Author: Ibrahim Haggag
-*/
 #include "../STD_Types_and_BIT_Math/STD_TYPES.h"
 #include "../STD_Types_and_BIT_Math/BIT_MATH.h"
 #include "UART_prv.h"
 #include "UART_int.h"
 #include "UART_cfg.h"
+
+static void (*UART_GlobalCallBack)(u8) = NULL;
 
 void UART_voidInit(void)
 {
@@ -28,6 +24,8 @@ void UART_voidInit(void)
 	
 	SET_BIT(USART_Registers->UCSRB,RXEN);
 	SET_BIT(USART_Registers->UCSRB,TXEN);
+
+	SET_BIT(USART_Registers->UCSRB, RXCIE);
 }
 
 void UART_voidTransmit(u8 Copy_u8Data)
@@ -40,4 +38,21 @@ u8 UART_u8Recieve(void)
 {
 	while (GET_BIT(USART_Registers->UCSRA,RXC) == 0);
 	return USART_Registers->UDR;
+}
+
+void UART_voidSetCallBack(void (*Copy_pVoidCallBack)(u8))
+{
+	if (Copy_pVoidCallBack != NULL_PTR)
+	{
+		UART_GlobalCallBack = Copy_pVoidCallBack;
+	}
+}
+
+void __vector_13(void) __attribute__ ((signal,used,externally_visible)); \
+void __vector_13(void)
+{
+	u8 Loc_u8ReceivedData = USART_Registers->UDR;
+	if (UART_GlobalCallBack != NULL_PTR){
+		UART_GlobalCallBack(Loc_u8ReceivedData);	
+	}
 }
