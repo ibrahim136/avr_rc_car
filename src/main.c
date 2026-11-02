@@ -1,13 +1,13 @@
-#include "STD_Types_and_BIT_Math/STD_TYPES.h"
-#include "STD_Types_and_BIT_Math/BIT_MATH.h"
-#include "DIO_Driver/DIO_int.h"
-#include "GIE_Driver/GIE_int.h"
-#include "EXTI_Driver/EXTI_int.h"
-#include "ADC_Driver/ADC_int.h"
-#include "Timer_driver/Timer_int.h"
-#include "UART_Driver/UART_int.h"
+#include "MCAL/STD_Types_and_BIT_Math/STD_TYPES.h"
+#include "MCAL/STD_Types_and_BIT_Math/BIT_MATH.h"
+#include "MCAL/DIO_Driver/DIO_int.h"
+#include "MCAL/GIE_Driver/GIE_int.h"
+#include "MCAL/EXTI_Driver/EXTI_int.h"
+#include "MCAL/ADC_Driver/ADC_int.h"
+#include "MCAL/Timer_driver/Timer_int.h"
+#include "MCAL/UART_Driver/UART_int.h"
 #define F_CPU 8000000
-//#include <util/delay.h>
+#include <util/delay.h>
 
 // Tick Time = 8 /8Mhz = 1ms
 // overflow time = 256
@@ -39,12 +39,12 @@ int main(void)
 	DIO_voidSetPinDirection(PORTA,PIN0,PIN_Output);
 	DIO_voidSetPinDirection(PORTA,PIN1,PIN_Output);
 	while(1){
-		for (int i=0;i<1000000000;i++);
+		_delay_ms(500);
 		DIO_voidSetPinValue(PORTA,PIN0,PIN_High);
+		DIO_voidSetPinValue(PORTA,PIN1,PIN_High);
+		_delay_ms(500);
 		DIO_voidSetPinValue(PORTA,PIN0,PIN_Low);
-		for (int i=0;i<1000000000;i++);
-		DIO_voidSetPinValue(PORTA,PIN0,PIN_Low);
-		DIO_voidSetPinValue(PORTA,PIN0,PIN_High);
+		DIO_voidSetPinValue(PORTA,PIN1,PIN_Low);
 		
 	}
 }
