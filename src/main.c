@@ -41,10 +41,10 @@ int main(void)
 	while(1){
 		_delay_ms(500);
 		DIO_voidSetPinValue(PORTA,PIN0,PIN_High);
-		DIO_voidSetPinValue(PORTA,PIN1,PIN_High);
+		DIO_voidSetPinValue(PORTA,PIN1,PIN_Low);
 		_delay_ms(500);
 		DIO_voidSetPinValue(PORTA,PIN0,PIN_Low);
-		DIO_voidSetPinValue(PORTA,PIN1,PIN_Low);
+		DIO_voidSetPinValue(PORTA,PIN1,PIN_High);
 		
 	}
 }
