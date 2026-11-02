@@ -6,7 +6,7 @@
 #include "MCAL/ADC_Driver/ADC_int.h"
 #include "MCAL/Timer_driver/Timer_int.h"
 #include "MCAL/UART_Driver/UART_int.h"
-#define F_CPU 8000000
+//#define F_CPU 8000000
 #include <util/delay.h>
 
 // Tick Time = 8 /8Mhz = 1ms
@@ -38,13 +38,16 @@ int main(void)
 	}*/
 	DIO_voidSetPinDirection(PORTA,PIN0,PIN_Output);
 	DIO_voidSetPinDirection(PORTA,PIN1,PIN_Output);
+	DIO_voidSetPinValue(PORTA,PIN0,PIN_Low);
+	DIO_voidSetPinValue(PORTA,PIN1,PIN_Low);
+
 	while(1){
 		_delay_ms(500);
 		DIO_voidSetPinValue(PORTA,PIN0,PIN_High);
-		DIO_voidSetPinValue(PORTA,PIN1,PIN_Low);
+		DIO_voidSetPinValue(PORTA,PIN1,PIN_High);
 		_delay_ms(500);
 		DIO_voidSetPinValue(PORTA,PIN0,PIN_Low);
-		DIO_voidSetPinValue(PORTA,PIN1,PIN_High);
+		DIO_voidSetPinValue(PORTA,PIN1,PIN_Low);
 		
 	}
 }

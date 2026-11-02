@@ -20,8 +20,11 @@ typedef signed long s32;
 typedef float f32;
 typedef double d64;
 
+typedef void (*ptr_to_func_t)(void);
+
 #define NULL_PTR (void*)0
 #define NULL 0
+
 
 
 

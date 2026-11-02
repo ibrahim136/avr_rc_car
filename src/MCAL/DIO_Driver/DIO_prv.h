@@ -1,11 +1,3 @@
-/*
- * DIO_prv.h
- *
- * Created: 10/15/2026 12:51:27 PM
- *  Author: Ibrahim Haggag
- */ 
-
-
 #ifndef DIO_PRV_H_
 #define DIO_PRV_H_
 
@@ -31,4 +23,4 @@ typedef struct
 #define GPIO_BASE ((volatile u8*)(0x30))
 #define GPIO_REG ((volatile GPIO_REG_t*)(GPIO_BASE))
 
-#endif /* DIO_PRV_H_ */
+#endif
